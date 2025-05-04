@@ -2,6 +2,7 @@ package br.com.fiap.msproduto.domain;
 
 import java.math.BigDecimal;
 import br.com.fiap.msproduto.exception.CategoriaInvalidaException;
+import br.com.fiap.msproduto.exception.CodigoDeBarrasInvalido;
 import br.com.fiap.msproduto.exception.NomeInvalidoException;
 import br.com.fiap.msproduto.exception.PrecoInvalidoException;
 import br.com.fiap.msproduto.exception.SkuInvalidoException;
@@ -10,6 +11,7 @@ public class Produto {
 	
 	private String sku;
 	private String nome;
+	private String codigoDeBarras;
 	private String descricao; 
 	private String fabricante; 
 	private BigDecimal preco; 
@@ -19,6 +21,10 @@ public class Produto {
 		if (nome.equals("") || nome == null) {
 			throw new NomeInvalidoException("Nome deve ser informado.");
 		}
+		if (nome.length() < 2) {
+			throw new NomeInvalidoException("Nome deve ter mais de 1 caractere.");
+		}
+		
 	}
 	
 	private void validaSku(String sku) throws SkuInvalidoException{
@@ -42,24 +48,35 @@ public class Produto {
 		}
 	}
 	
+	private void validaCodigoDeBarras(String codigoDeBarras) throws CodigoDeBarrasInvalido{
+		if (codigoDeBarras == null || codigoDeBarras.equals("")) {
+			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
+		}
+		if (codigoDeBarras.length() > 14) {
+			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
+		}
+	}
+	
 	public Produto() {
 		super();
 	}
 
-	public Produto(String sku, String nome, BigDecimal preco, String descricao, Categoria categoria,
+	public Produto(String sku, String nome, String codigoDeBarras, BigDecimal preco, String descricao, Categoria categoria,
 			String fabricante){
 		
 		try {
 			validaSku(sku);
 			validaNome(nome);
+			validaCodigoDeBarras(codigoDeBarras);
 			validaPreco(preco);
 			validaCategoria(categoria);
-		} catch (SkuInvalidoException | NomeInvalidoException | PrecoInvalidoException | CategoriaInvalidaException e) {
+		} catch (SkuInvalidoException | NomeInvalidoException | PrecoInvalidoException | CategoriaInvalidaException | CodigoDeBarrasInvalido e) {
 			e.printStackTrace();
 		}
 
 		this.sku = sku;
 		this.nome = nome;
+		this.codigoDeBarras = codigoDeBarras;
 		this.preco = preco;
 		this.descricao = descricao;
 		this.categoria = categoria;
@@ -132,5 +149,20 @@ public class Produto {
 	
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
+	}
+
+	public String getCodigoDeBarras() {
+		return codigoDeBarras;
+	}
+
+	public void setCodigoDeBarras(String codigoDeBarras) {
+		try {
+			validaCodigoDeBarras(codigoDeBarras);
+		} catch (CodigoDeBarrasInvalido e) {
+			e.printStackTrace();
+		}
+		this.codigoDeBarras = codigoDeBarras;
 	}		
+	
+	
 }
