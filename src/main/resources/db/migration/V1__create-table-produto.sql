@@ -1,0 +1,9 @@
+CREATE TABLE PRODUTO(
+    SKU                 VARCHAR(12)     NOT NULL PRIMARY KEY ,
+    CODIGO_DE_BARRAS    VARCHAR(13)     NOT NULL,
+    NOME                VARCHAR(50)     NOT NULL,
+    PRECO               NUMERIC(8,2)    NOT NULL,
+    CATEGORIA           VARCHAR(20)     NOT NULL,
+    DESCRICAO           VARCHAR(300)    NULL,
+    FABRICANTE          VARCHAR(100)    NULL
+);
