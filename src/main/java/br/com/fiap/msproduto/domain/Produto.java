@@ -17,50 +17,8 @@ public class Produto {
 	private BigDecimal preco; 
 	private Categoria categoria; 
 	
-	private void validaNome(String nome)  throws NomeInvalidoException{
-		if (nome.equals("") || nome == null) {
-			throw new NomeInvalidoException("Nome deve ser informado.");
-		}
-		if (nome.length() < 2) {
-			throw new NomeInvalidoException("Nome deve ter mais de 1 caractere.");
-		}
-		
-	}
+	public Produto() {}
 	
-	private void validaSku(String sku) throws SkuInvalidoException{
-		if (sku.contentEquals("") || sku == null) {
-			throw new SkuInvalidoException("Sku deve ser informado.");
-		}
-	}
-	
-	private void validaPreco(BigDecimal preco) throws PrecoInvalidoException{
-		if (preco.equals(null) || preco == null) {
-			throw new PrecoInvalidoException("Preço deve ser informado.");
-		}
-		if (preco.equals(BigDecimal.ZERO) || preco.compareTo(BigDecimal.ZERO) == -1 ) {
-			throw new PrecoInvalidoException("Preço inválido.");
-		}
-	}
-	
-	private void validaCategoria(Categoria categoria) throws CategoriaInvalidaException{
-		if (categoria == null) {
-			throw new CategoriaInvalidaException("Categoria deve ser escolhida.");
-		}
-	}
-	
-	private void validaCodigoDeBarras(String codigoDeBarras) throws CodigoDeBarrasInvalido{
-		if (codigoDeBarras == null || codigoDeBarras.equals("")) {
-			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
-		}
-		if (codigoDeBarras.length() > 14) {
-			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
-		}
-	}
-	
-	public Produto() {
-		super();
-	}
-
 	public Produto(String sku, String nome, String codigoDeBarras, BigDecimal preco, String descricao, Categoria categoria,
 			String fabricante){
 		
@@ -163,6 +121,46 @@ public class Produto {
 		}
 		this.codigoDeBarras = codigoDeBarras;
 	}		
+	
+	private void validaNome(String nome)  throws NomeInvalidoException{
+		if (nome.equals("") || nome == null) {
+			throw new NomeInvalidoException("Nome deve ser informado.");
+		}
+		if (nome.length() < 2) {
+			throw new NomeInvalidoException("Nome deve ter mais de 1 caractere.");
+		}
+		
+	}
+	
+	private void validaSku(String sku) throws SkuInvalidoException{
+		if (sku.contentEquals("") || sku == null) {
+			throw new SkuInvalidoException("Sku deve ser informado.");
+		}
+	}
+	
+	private void validaPreco(BigDecimal preco) throws PrecoInvalidoException{
+		if (preco.equals(null) || preco == null) {
+			throw new PrecoInvalidoException("Preço deve ser informado.");
+		}
+		if (preco.equals(BigDecimal.ZERO) || preco.compareTo(BigDecimal.ZERO) == -1 ) {
+			throw new PrecoInvalidoException("Preço inválido.");
+		}
+	}
+	
+	private void validaCategoria(Categoria categoria) throws CategoriaInvalidaException{
+		if (categoria == null) {
+			throw new CategoriaInvalidaException("Categoria deve ser escolhida.");
+		}
+	}
+	
+	private void validaCodigoDeBarras(String codigoDeBarras) throws CodigoDeBarrasInvalido{
+		if (codigoDeBarras == null || codigoDeBarras.equals("")) {
+			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
+		}
+		if (codigoDeBarras.length() > 14) {
+			throw new CodigoDeBarrasInvalido("Código de Barras inválido");
+		}
+	}
 	
 	
 }

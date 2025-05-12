@@ -12,5 +12,5 @@ public record ProdutoDTO(
 		String fabricante,
 		BigDecimal preco, 
 		Categoria categoria) {
-
+	
 }
