@@ -9,4 +9,4 @@ COPY --from=build /app-produtos/target/msproduto-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8082
 
-CMD ["java", "-jar", "app.jar"]
+CMD bash -c "sleep 20 && java -jar app.jar"
