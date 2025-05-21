@@ -25,7 +25,6 @@ private final IProdutoGateway produtoGateway;
 			
 			return produtos;
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}

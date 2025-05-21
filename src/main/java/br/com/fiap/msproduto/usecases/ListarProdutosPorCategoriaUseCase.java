@@ -29,7 +29,6 @@ public class ListarProdutosPorCategoriaUseCase {
 			return produtos;
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}

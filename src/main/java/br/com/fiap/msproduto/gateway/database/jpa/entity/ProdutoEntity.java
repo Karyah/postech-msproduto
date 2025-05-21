@@ -57,55 +57,28 @@ public class ProdutoEntity {
 		return sku;
 	}
 
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
-
 	public String getNome() {
 		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getCodigoDeBarras() {
 		return codigoDeBarras;
 	}
 
-	public void setCodigoDeBarras(String codigoDeBarras) {
-		this.codigoDeBarras = codigoDeBarras;
-	}
-
 	public String getDescricao() {
 		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public String getFabricante() {
 		return fabricante;
 	}
 
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
-	}
-
 	public BigDecimal getPreco() {
 		return preco;
-	}
-
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
 	}
 
 	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 }

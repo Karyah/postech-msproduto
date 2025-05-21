@@ -25,7 +25,6 @@ public class ListarProdutosOrdenarPorMaiorPrecoUseCase {
 			
 			return produtos;
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}

@@ -103,6 +103,7 @@ public class CriarProdutoUseCaseTest {
 				new BigDecimal("1033"),
 				null
 		);
+		
 		Produto produto = dtoParaDomain(produtoDTOMock);
 		
 		Mockito.when(produtoGateway.criarProduto(Mockito.any()))
@@ -124,6 +125,7 @@ public class CriarProdutoUseCaseTest {
 				new BigDecimal("1033"),
 				Categoria.ELETRONICO
 		);
+		
 		Produto produto = dtoParaDomain(produtoDTOMock);
 		
 		Mockito.when(produtoGateway.criarProduto(Mockito.any()))

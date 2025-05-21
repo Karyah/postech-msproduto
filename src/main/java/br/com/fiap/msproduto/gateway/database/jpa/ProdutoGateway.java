@@ -98,7 +98,7 @@ public class ProdutoGateway implements IProdutoGateway{
 	}
 
 	
-	private Produto entityParaDomain(ProdutoEntity produtoEntity) {
+	public Produto entityParaDomain(ProdutoEntity produtoEntity) {
 		return new Produto(
 				produtoEntity.getSku(),
 				produtoEntity.getNome(),
@@ -110,7 +110,7 @@ public class ProdutoGateway implements IProdutoGateway{
 				);
 	}
 
-	private ProdutoEntity domainParaEntity(Produto produto) {
+	public ProdutoEntity domainParaEntity(Produto produto) {
 		return new ProdutoEntity(
 				produto.getSku(),
 				produto.getNome(),
